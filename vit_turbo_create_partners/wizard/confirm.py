@@ -7,7 +7,7 @@ _logger = logging.getLogger(__name__)
 class ConfimWizard(models.TransientModel):
     _name = 'vit.confirm_wizard'
 
-    @api.multi
+    # @api.multi
     def confirm_button(self):
         self.ensure_one()
         emp = self.env['hr.employee']
