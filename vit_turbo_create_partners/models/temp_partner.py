@@ -192,7 +192,7 @@ class temp_partner(models.Model):
     def cron_import(self):
         self.process()
         
-    @api.multi
+    # @api.multi
     def process(self):
         
 
@@ -253,7 +253,7 @@ class temp_partner(models.Model):
     [[emp_no,first_name,last_name,birth_date,gender,hire_date,department],
     [emp_no,first_name,last_name,birth_date,gender,hire_date,department],...]
     """
-    @api.multi
+    # @api.multi
     def batch_create_partners(self):
         try:
             start = time.time()
