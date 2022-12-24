@@ -193,6 +193,7 @@ class temp_partner(models.Model):
         self.process()
         
     # @api.multi
+    # process dari temp_partner 
     def process(self):
         
 
@@ -212,20 +213,6 @@ class temp_partner(models.Model):
                     rec.mobile,
                     rec.picking_warn,
                     rec.purchase_warn
-                    # rec.state,
-                    # rec.date,
-                    # rec.title,
-                    # rec.parent_name,
-                    # rec.ref, 
-                    # rec.user_id,
-                    # rec.vat,
-                    # rec.comment ,
-                    # rec.barcode ,
-                    # rec.customer,   
-                    # rec.supplier,   
-                    # rec.employee,
-                    # rec.function,
-                    # rec.type
                 ])
             data_final, i = self.format_data(data)
             _logger.info(data_final)
@@ -267,6 +254,39 @@ class temp_partner(models.Model):
             end = time.time()
             duration = end - start
             return json.dumps({'status': 'OK' , 'message' : 'Created %d Employees in %s seconds' % (i, duration)})
+
+        except Exception as e :
+            self.env.cr.rollback()
+            trc = traceback.format_exc()
+            _logger.error(trc)
+            return json.dumps({'status': 'Failed' , 'message': str(trc)})
+    
+    
+    def dummy_create_partners(self):
+        try:
+            start = time.time()
+            cr = self.env.cr
+            data=[[
+                'Partner {}'.format(x),
+                'no-message',
+                'no-message',
+                True,
+                'Street Partner {}'.format(x),
+                'Street2 Partner {}'.format(x),
+                '8120000000{}'.format(x),
+                '8120000000{}'.format(x),
+                'no-message',
+                'no-message',
+                'draft'
+            ] for x in range(1,1000000)]
+            data_final, i = self.format_data(data)
+            _logger.info(data_final)
+
+            cr.execute("select vit_create_partners(%s)", (data_final,))
+
+            end = time.time()
+            duration = end - start
+            return json.dumps({'status': 'OK' , 'message' : 'Created %d Partners in %s seconds' % (i, duration)})
 
         except Exception as e :
             self.env.cr.rollback()

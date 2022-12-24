@@ -1,2 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_sedot-sql_sedot-sql,sedot-sql.sedot-sql,model_sedot-sql_sedot-sql,,1,0,0,0
+vit_turbo_create_partners.access_vit_temp_partner,access_vit_temp_partner,vit_turbo_create_partners.model_vit_temp_partner,base.group_user,1,0,0,0
+vit_turbo_create_partners.access_vit_confirm_wizard,access_vit_confirm_wizard,vit_turbo_create_partners.model_vit_confirm_wizard,base.group_user,1,0,0,0
+
+
+vit_turbo_create_partners.admin_access_vit_temp_partner,admin_access_vit_temp_partner,vit_turbo_create_partners.model_vit_temp_partner,base.group_system,1,1,1,1
+vit_turbo_create_partners.admin_access_vit_confirm_wizard,admin_access_vit_confirm_wizard,vit_turbo_create_partners.model_vit_confirm_wizard,base.group_system,1,1,1,1
+
