@@ -5,7 +5,7 @@
         <record id="action_owner" model="ir.actions.act_window">
             <field name="name">Owner</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model"></field>
+            <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
             <field name="context">{"search_default_fieldname":1}</field>
             <field name="help" type="html">

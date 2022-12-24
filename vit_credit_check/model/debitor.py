@@ -14,4 +14,4 @@ class debitor(models.Model):
 
 
     credit_history_ids = fields.One2many(comodel_name="vit.credit_history",  inverse_name="partner_id",  string="Credit history",  help="", )
-    owner_id = fields.Many2one(comodel_name="",  string="Owner",  help="", )
+    owner_id = fields.Many2one(comodel_name="res.partner",  string="Owner",  help="", )
