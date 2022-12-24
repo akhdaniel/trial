@@ -87,7 +87,7 @@
     -->
     <!-- actions -->
     
-    <menuitem name="Temp Partner List" id="temp_partner_menu_1_list" parent="sale.menu_sale_general_settings"
+    <menuitem name="Temp Partner List" id="temp_partner_menu_1_list" 
               action="temp_partner_action_window" sequence="100"/>
     <!-- <menuitem name="Server to list" id="temp_partner" parent="temp_partner.menu_2"
               action="temp_partner.action_server"/>
