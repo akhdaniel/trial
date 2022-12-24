@@ -1,0 +1,7 @@
+<odoo>
+	<data>
+		<menuitem id="vit_credit_check_top_menu" name="CreditCheck" sequence="20" web_icon="vit_credit_check,static/description/icon.png" />
+		<menuitem id="vit_credit_check_sub_menu" name="Operations" sequence="40" parent="vit_credit_check_top_menu" />
+		<menuitem id="vit_credit_check_config_menu" name="Configurations" sequence="50" parent="vit_credit_check_top_menu" />
+	</data>
+</odoo>

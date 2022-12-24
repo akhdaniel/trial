@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <!--record id="view_credit_history_tree" model="ir.ui.view">
+            <field name="name">credit_history_tree</field>
+            <field name="model">vit.credit_history</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="vit_credit_check.view_vit_credit_history_tree"/>
+            <field name="arch" type="xml">
+            </field>
+        </record-->
+        <!-- form view -->
+        <record id="view_credit_history_form" model="ir.ui.view">
+            <field name="name">credit_history_form</field>
+            <field name="model">vit.credit_history</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="vit_credit_check.view_vit_credit_history_form"/>
+            <field name="arch" type="xml">
+            </field>
+        </record>
+        <!-- search -->
+        <!--record id="view_credit_history_search" model="ir.ui.view">
+            <field name="name">credit_history</field>
+            <field name="model">vit.credit_history</field>
+            <field name="inherit_id" ref="vit_credit_check.view_vit_credit_history_search"/>
+            <field name="arch" type="xml">
+            </field>
+        </record-->
+        <!-- action window -->
+        <record id="vit_credit_check.action_credit_history" model="ir.actions.act_window">
+            <field name="name">Credit history</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vit.credit_history</field>
+            <field name="view_mode">tree,form,kanban,pivot,calendar,graph</field>
+            <field name="context">{"search_default_fieldname":1}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new Credit history
+                </p><p>
+                Click the Create button to add a new Credit history
+                </p>
+            </field>
+        </record>
+
+        <menuitem active="1" id="vit_credit_check.menu_credit_history" name="Credit history" parent="vit_credit_check.vit_credit_check_config_menu" action="vit_credit_check.action_credit_history" sequence="30"/>
+    </data>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <!--record id="view_owner_tree" model="ir.ui.view">
+            <field name="name">owner_tree</field>
+            <field name="model"></field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref=""/>
+            <field name="arch" type="xml">
+            </field>
+        </record-->
+        <!-- form view -->
+        <record id="view_owner_form" model="ir.ui.view">
+            <field name="name">owner_form</field>
+            <field name="model"></field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref=""/>
+            <field name="arch" type="xml">
+            </field>
+        </record>
+        <!-- search -->
+        <!--record id="view_owner_search" model="ir.ui.view">
+            <field name="name">owner</field>
+            <field name="model"></field>
+            <field name="inherit_id" ref=""/>
+            <field name="arch" type="xml">
+            </field>
+        </record-->
+        <!-- action window -->
+        <record id="vit_credit_check.action_owner" model="ir.actions.act_window">
+            <field name="name">Owner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model"></field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_fieldname":1}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new Owner
+                </p><p>
+                Click the Create button to add a new Owner
+                </p>
+            </field>
+        </record>
+
+        <menuitem active="1" id="vit_credit_check.menu_owner" name="Owner" parent="vit_credit_check.vit_credit_check_config_menu" action="vit_credit_check.action_owner" sequence="40"/>
+    </data>
+</odoo>
