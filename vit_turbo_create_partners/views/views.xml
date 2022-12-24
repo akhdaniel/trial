@@ -1,0 +1,108 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="temp_partner_list">
+      <field name="name">temp_partner list</field>
+      <field name="model">vit.temp_partner</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="invoice_warn"/>
+          <field name="sale_warn"/>
+          <field name="active"/>
+          <field name="street"/>
+          <field name="street2"/>
+          <field name="phone"/>
+          <field name="mobile"/>
+          <field name="picking_warn"/>
+          <field name="purchase_warn"/>
+          <field name="state"/>
+          <!-- <field name="email"/>
+          <field name="city"/>  -->
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="temp_partner_form">
+      <field name="name">temp_partner form</field>
+      <field name="model">vit.temp_partner</field>
+      <field name="arch" type="xml">
+        <form>
+        <header>
+          <button name="process" string="Process Import" type="object"/>
+        </header>
+        <sheet>
+        <group>
+          <field name="name"/>
+          <field name="invoice_warn"/>
+          <field name="sale_warn"/>
+          <field name="active"/>
+          <field name="street"/>
+          <field name="street2"/>
+          <field name="phone"/>
+          <field name="mobile"/>
+          <field name="picking_warn"/>
+          <field name="purchase_warn" />
+          <field name="state"/>
+        </group>
+        </sheet>
+          
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="temp_partner_action_window">
+      <field name="name">temp_partner window</field>
+      <field name="res_model">vit.temp_partner</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="temp_partner.action_server">
+      <field name="name">temp_partner server</field>
+      <field name="model_id" ref="model_sedot-sql_sedot-sql"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="temp_partner" id="temp_partner.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="temp_partner.menu_1" parent="temp_partner.menu_root"/>
+    <menuitem name="Menu 2" id="temp_partner.menu_2" parent="temp_partner.menu_root"/>
+    -->
+    <!-- actions -->
+    
+    <menuitem name="Temp Partner List" id="temp_partner_menu_1_list" parent="sale.menu_sale_general_settings"
+              action="temp_partner_action_window" sequence="100"/>
+    <!-- <menuitem name="Server to list" id="temp_partner" parent="temp_partner.menu_2"
+              action="temp_partner.action_server"/>
+    -->
+
+    <!-- BUTTON ACTION IN HEADER -->
+    <record id="action_import_data" model="ir.actions.server">
+        <field name="name">Import Now</field>
+        <field name="model_id" ref="model_vit_temp_partner"/>
+        <field name="binding_model_id" ref="vit_turbo_create_partners.model_vit_temp_partner"/>
+        <field name="state">code</field>
+        <field name="code">
+            for rec in records:
+                rec.process()
+        </field>
+    </record>
+  </data>
+</odoo>
