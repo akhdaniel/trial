@@ -32,6 +32,7 @@ class debitor(models.Model):
             v_mobile TEXT;
             v_email TEXT;
             v_debitor_exist INTEGER;
+            v_credit_score TEXT;
             
         BEGIN
             SELECT string_to_array(data, '|') INTO records;
@@ -45,6 +46,7 @@ class debitor(models.Model):
                 v_phone = debitor_rec[5];
                 v_mobile = debitor_rec[6];
                 v_email = debitor_rec[7];
+                SELECT 'COL-'||floor(random() * 5 + 1)::int into v_credit_score;
 
                 SELECT id from vit_debitor where name = v_name INTO v_debitor_exist;
 
@@ -58,7 +60,8 @@ class debitor(models.Model):
                         country,
                         phone,
                         mobile,
-                        email                     
+                        email,
+                        credit_score  
                     )
                     values (
                         v_name,
@@ -67,7 +70,8 @@ class debitor(models.Model):
                         v_country,
                         v_phone,
                         v_mobile,
-                        v_email
+                        v_email,
+                        v_credit_score
                     );
 
                 ELSE
@@ -78,7 +82,8 @@ class debitor(models.Model):
                         country=v_country,
                         phone=v_phone,
                         mobile=v_mobile,
-                        email=v_email
+                        email=v_email,
+                        credit_score=v_credit_score
                     WHERE
                         id=v_debitor_exist;
 
