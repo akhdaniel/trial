@@ -30,6 +30,8 @@ Information
 		# "view/debitor.xml",
 		# "view/credit_history.xml",
 		# "view/owner.xml",
+		"wizard/confirm.xml",
+		"security/ir.model.access.csv",
 	],
 	"installable": True,
 	"auto_install": False,

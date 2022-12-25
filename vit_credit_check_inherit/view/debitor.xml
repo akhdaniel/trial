@@ -4,26 +4,26 @@
         <!-- tree view -->
         <!--record id="view_debitor_tree" model="ir.ui.view">
             <field name="name">debitor_tree</field>
-            <field name="model">res.partner</field>
+            <field name="model">vit.debitor</field>
             <field name="type">tree</field>
-            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="inherit_id" ref="vit_credit_check.view_vit_debitor_tree"/>
             <field name="arch" type="xml">
             </field>
         </record-->
         <!-- form view -->
         <record id="view_debitor_form" model="ir.ui.view">
             <field name="name">debitor_form</field>
-            <field name="model">res.partner</field>
+            <field name="model">vit.debitor</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="vit_credit_check.view_vit_debitor_form"/>
             <field name="arch" type="xml">
             </field>
         </record>
         <!-- search -->
         <!--record id="view_debitor_search" model="ir.ui.view">
             <field name="name">debitor</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="model">vit.debitor</field>
+            <field name="inherit_id" ref="vit_credit_check.view_vit_debitor_search"/>
             <field name="arch" type="xml">
             </field>
         </record-->
@@ -31,8 +31,8 @@
         <record id="vit_credit_check.action_debitor" model="ir.actions.act_window">
             <field name="name">Debitor</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">res.partner</field>
-            <field name="view_mode">tree,form</field>
+            <field name="res_model">vit.debitor</field>
+            <field name="view_mode">tree,form,kanban,pivot,graph</field>
             <field name="context">{"search_default_fieldname":1}</field>
             <field name="domain">[]</field>
             <field name="help" type="html">

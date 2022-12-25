@@ -1,4 +1,7 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+access_user_vit_debitor,access_user_vit_debitor,model_vit_debitor,vit_credit_check.group_creditcheck_user,1,0,0,0
+access_manager_vit_debitor,access_manager_vit_debitor,model_vit_debitor,vit_credit_check.group_creditcheck_manager,1,1,1,1
+access_admin_vit_debitor,access_admin_vit_debitor,model_vit_debitor,base.group_system,1,1,1,1
 access_user_vit_credit_history,access_user_vit_credit_history,model_vit_credit_history,vit_credit_check.group_creditcheck_user,1,0,0,0
 access_manager_vit_credit_history,access_manager_vit_credit_history,model_vit_credit_history,vit_credit_check.group_creditcheck_manager,1,1,1,1
 access_admin_vit_credit_history,access_admin_vit_credit_history,model_vit_credit_history,base.group_system,1,1,1,1

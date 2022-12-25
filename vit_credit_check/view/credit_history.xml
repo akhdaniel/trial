@@ -14,7 +14,7 @@
                     <field name="date_to" />
                     <field name="amount" />
                     <field name="provider" />
-                    <field name="partner_id" />
+                    <field name="debitor_id" />
                 </tree>
             </field>
         </record>
@@ -25,7 +25,7 @@
             <field name="type">pivot</field>
             <field name="arch" type="xml">
                 <pivot string="Credit history">
-                    <field name="partner_id" type="row"/>
+                    <field name="debitor_id" type="row"/>
                 </pivot>
             </field>
         </record>
@@ -58,7 +58,7 @@
                                 <field name="provider" />
                             </group>
                             <group>
-                                <field name="partner_id" />
+                                <field name="debitor_id" />
                             </group>
                         </group>
                         <notebook>
@@ -84,9 +84,9 @@
                     <field name="date_to" select="True"/>
                     <field name="amount" select="True"/>
                     <field name="provider" select="True"/>
-                    <field name="partner_id" select="True"/>
+                    <field name="debitor_id" select="True"/>
                     <group string="Group By..">
-                        <filter string="Partner" domain="[]" name="group_by_partner_id" context="{'group_by':'partner_id'}"/>
+                        <filter string="Debitor" domain="[]" name="group_by_debitor_id" context="{'group_by':'debitor_id'}"/>
                     </group>
                 </search>
             </field>
@@ -103,7 +103,7 @@
                     <field name="date_to" />
                     <field name="amount" />
                     <field name="provider" />
-                    <field name="partner_id" />
+                    <field name="debitor_id" />
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
@@ -114,7 +114,7 @@
                                     <ul>
 
                                         <li>
-                                            <span class="text-muted">Partner</span> <field name="partner_id"></field>
+                                            <span class="text-muted">Debitor</span> <field name="debitor_id"></field>
                                         </li>
 
                                         <li>
@@ -144,7 +144,7 @@
             <field name="model">vit.credit_history</field>
             <field name="arch" type="xml">
                 <graph string="Credit history" type="bar">
-                    <field name="partner_id"/>
+                    <field name="debitor_id"/>
                 </graph>
             </field>
         </record>

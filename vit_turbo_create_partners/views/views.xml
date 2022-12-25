@@ -8,15 +8,13 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="invoice_warn"/>
-          <field name="sale_warn"/>
+
           <field name="active"/>
           <field name="street"/>
           <field name="street2"/>
           <field name="phone"/>
           <field name="mobile"/>
-          <field name="picking_warn"/>
-          <field name="purchase_warn"/>
+
           <field name="state"/>
           <!-- <field name="email"/>
           <field name="city"/>  -->
@@ -31,20 +29,18 @@
         <form>
         <header>
           <button name="process" string="Process Import" type="object"/>
-          <button name="dummy_create_partners" string="Process Dummy" type="object"/>
+          <button name="dummy_create_partners" string="Process 1M Dummy" type="object"/>
         </header>
         <sheet>
         <group>
           <field name="name"/>
-          <field name="invoice_warn"/>
-          <field name="sale_warn"/>
+
           <field name="active"/>
           <field name="street"/>
           <field name="street2"/>
           <field name="phone"/>
           <field name="mobile"/>
-          <field name="picking_warn"/>
-          <field name="purchase_warn" />
+
           <field name="state"/>
         </group>
         </sheet>
@@ -61,39 +57,11 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="temp_partner.action_server">
-      <field name="name">temp_partner server</field>
-      <field name="model_id" ref="model_sedot-sql_sedot-sql"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
-
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="temp_partner" id="temp_partner.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="temp_partner.menu_1" parent="temp_partner.menu_root"/>
-    <menuitem name="Menu 2" id="temp_partner.menu_2" parent="temp_partner.menu_root"/>
-    -->
-    <!-- actions -->
     
-    <menuitem name="Temp Partner List" id="temp_partner_menu_1_list" 
-              action="temp_partner_action_window" sequence="100"/>
-    <!-- <menuitem name="Server to list" id="temp_partner" parent="temp_partner.menu_2"
-              action="temp_partner.action_server"/>
-    -->
-
+    
+    <menuitem name="Turbo Import Partner" id="temp_partner_menu_1_list"  sequence="100"/>
+    <menuitem name="Import Partner" id="import_partner" parent="temp_partner_menu_1_list" action="temp_partner_action_window" sequence="100"/>
+    
     <!-- BUTTON ACTION IN HEADER -->
     <record id="action_import_data" model="ir.actions.server">
         <field name="name">Import Now</field>

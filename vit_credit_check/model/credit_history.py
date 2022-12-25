@@ -15,4 +15,4 @@ class credit_history(models.Model):
     provider = fields.Char( string="Provider",  help="", )
 
 
-    partner_id = fields.Many2one(comodel_name="res.partner",  string="Partner",  help="", )
+    debitor_id = fields.Many2one(comodel_name="vit.debitor",  string="Debitor",  help="", )

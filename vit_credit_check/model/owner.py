@@ -6,9 +6,9 @@ from odoo.exceptions import UserError, Warning
 
 class owner(models.Model):
 
-    _name = "res.partner"
-    _description = "res.partner"
-    _inherit = "res.partner"
+    _name = "res.company"
+    _description = "res.company"
+    _inherit = "res.company"
 
 
 

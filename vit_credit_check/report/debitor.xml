@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- report qweb view -->
+        <record id="action_report_vit_debitor" model="ir.actions.report">
+            <field name="name">Debitor</field>
+            <field name="model">vit.debitor</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">vit_credit_check.vit_debitor_report</field>
+            <field name="report_file">vit_credit_check.vit_debitor_report</field>
+            <field name="print_report_name">object.name</field>
+            <field name="binding_model_id" ref="vit_credit_check.model_vit_debitor"/>
+            <field name="binding_type">report</field>
+        </record>
+        <!-- document template -->
+        <template id="vit_credit_check.vit_debitor_report_document" >
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang': lang})"/>
+                <div class="page">
+                    <h2>
+                        Debitor: <span t-field="doc.name"/>
+                    </h2>
+                    <div class="row mt32 mb32">
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Email</strong>
+                            <p class="m-0" t-field="doc.email" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Address</strong>
+                            <p class="m-0" t-field="doc.address" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Mobile</strong>
+                            <p class="m-0" t-field="doc.mobile" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Phone</strong>
+                            <p class="m-0" t-field="doc.phone" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>City</strong>
+                            <p class="m-0" t-field="doc.city" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Country</strong>
+                            <p class="m-0" t-field="doc.country" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Credit score</strong>
+                            <p class="m-0" t-field="doc.credit_score" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Owner</strong>
+                            <p class="m-0" t-field="doc.owner_id"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure"/>
+                <h2>Credit history</h2>
+                <table class="table table-sm o_main_table" name="credit_history_ids_table">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Date from</td>
+                            <td>Date to</td>
+                            <td>Amount</td>
+                            <td>Provider</td>
+                            <td>Debitor</td>
+                        </tr>
+                    </thead>
+                    <tbody class="credit_history_ids_tbody">
+                        <tr t-foreach="doc.credit_history_ids" t-as="line">
+                            <td><span t-field="line.name" /></td>
+                            <td><span t-field="line.date_from" /></td>
+                            <td><span t-field="line.date_to" /></td>
+                            <td><span t-field="line.amount" /></td>
+                            <td><span t-field="line.provider" /></td>
+                            <td><span t-field="line.debitor_id" /></td>
+                        </tr> <!-- foreach-->
+                    </tbody>
+                </table>
+                <div class="oe_structure"/>
+            </t>
+        </template>
+
+        <!-- main template -->
+        <template id="vit_credit_check.vit_debitor_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-set="lang" t-value="doc.create_uid.lang"/>
+                    <t t-call="vit_credit_check.vit_debitor_report_document" />
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

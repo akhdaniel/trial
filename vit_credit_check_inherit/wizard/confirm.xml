@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <form string="Confirmation">
                     <group>
+                        <field name="start"/>                        
                         <field name="quantity"/>                        
                     </group>
 
@@ -22,29 +23,14 @@
             </field>
         </record>
 
-        <!-- menu -->
-        <!-- <act_window id="act_confirm_wizard"
-            name="Confirm Wizard"
-            res_model="vit.confirm_wizard"
-            src_model="vit.temp_partner"
-            view_type="form"
-            view_mode="form"
-            target="new"
-            key2="client_action_multi"
-        /> -->
-
-
         <record model="ir.actions.act_window" id="act_confirm_wizard">
             <field name="name">act_confirm_wizard window</field>
             <field name="res_model">vit.confirm_wizard</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
-            <!-- <field name="key2">client_action_multi</field> -->
         </record>
 
-
-
-        <menuitem name="Create Dummy Partner" id="dummy_partner" parent="temp_partner_menu_1_list" 
+        <menuitem name="Create Dummy Debtor" id="dummy_partner" parent="vit_credit_check.vit_credit_check_top_menu" 
             action="act_confirm_wizard" sequence="100"/>
 
     </data>

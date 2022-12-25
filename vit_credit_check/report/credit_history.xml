@@ -38,8 +38,8 @@
                             <p class="m-0" t-field="doc.provider" />
                         </div>
                         <div class="col-auto mw-100 mb-2">
-                            <strong>Partner</strong>
-                            <p class="m-0" t-field="doc.partner_id"/>
+                            <strong>Debitor</strong>
+                            <p class="m-0" t-field="doc.debitor_id"/>
                         </div>
                     </div>
                 </div>

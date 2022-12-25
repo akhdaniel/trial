@@ -29,9 +29,10 @@ Information
 		"security/groups.xml",
 		"security/ir.model.access.csv",
 		"view/menu.xml",
-		"view/debitor.xml", #inherited
+		"view/debitor.xml",
 		"view/credit_history.xml",
 		"view/owner.xml", #inherited
+		"report/debitor.xml",
 		"report/credit_history.xml",
 	],
 	"installable": True,
